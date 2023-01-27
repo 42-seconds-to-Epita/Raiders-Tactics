@@ -162,6 +162,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
+  normalSpeed: 0.05
+  fastSpeed: 0.15
   movementSpeed: 0.05
   movementTime: 5
+  rotationAmount: 0.25
+  zoomAmount: {x: 0, y: -0.1, z: 0.1}
   newPosition: {x: 0, y: 0, z: 0}
+  newRotation: {x: 0, y: 0, z: 0, w: 0}
+  newZoom: {x: 0, y: 0, z: 0}
