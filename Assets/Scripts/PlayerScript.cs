@@ -1,5 +1,6 @@
 using Mirror;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace QuickStart
 {
@@ -7,13 +8,13 @@ namespace QuickStart
     {
         public float normalSpeed;
         public float fastSpeed;
-        
+
         public float movementSpeed;
         public float movementTime;
         public float rotationAmount;
         public Vector3 zoomAmount;
 
-        
+
         public Vector3 newPosition;
         public Quaternion newRotation;
         public Vector3 newZoom;
@@ -30,7 +31,10 @@ namespace QuickStart
 
         void Update()
         {
-            if (!isLocalPlayer) { return; }
+            if (!isLocalPlayer)
+            {
+                return;
+            }
 
             HandleMovementInput();
         }
@@ -46,20 +50,23 @@ namespace QuickStart
             {
                 movementSpeed = normalSpeed;
             }
-            
+
             //Translation
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 newPosition += (transform.forward * movementSpeed);
             }
+
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 newPosition += (transform.forward * -movementSpeed);
             }
+
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 newPosition += (transform.right * movementSpeed);
             }
+
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 newPosition += (transform.right * -movementSpeed);
@@ -71,16 +78,18 @@ namespace QuickStart
             {
                 newRotation *= Quaternion.Euler(Vector3.up * rotationAmount);
             }
+
             if (Input.GetKey(KeyCode.E))
             {
                 newRotation *= Quaternion.Euler(Vector3.up * -rotationAmount);
             }
-            
+
             //Zoom
             if (Input.GetKey(KeyCode.R))
             {
                 newZoom += zoomAmount;
             }
+
             if (Input.GetKey(KeyCode.F))
             {
                 newZoom += -zoomAmount;
@@ -88,7 +97,8 @@ namespace QuickStart
 
             transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * movementTime);
-            Camera.main.transform.localPosition = Vector3.Lerp(Camera.main.transform.localPosition, newZoom, Time.deltaTime * movementTime);
+            Camera.main.transform.localPosition = Vector3.Lerp(Camera.main.transform.localPosition, newZoom,
+                Time.deltaTime * movementTime);
         }
     }
 }
