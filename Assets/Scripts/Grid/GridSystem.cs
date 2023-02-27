@@ -14,7 +14,7 @@ namespace Grid
 
         private void Start()
         {
-            grid = new Grid<GridObject>(20, 20, 3f, (Grid<GridObject> g, int x, int y) => new GridObject(g, x, y));
+            grid = new Grid<GridObject>(20, 20, 1.5f, (Grid<GridObject> g, int x, int y) => new GridObject(g, x, y));
         }
 
         private void Update()
