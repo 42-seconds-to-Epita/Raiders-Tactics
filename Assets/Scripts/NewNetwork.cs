@@ -12,8 +12,8 @@ public class NewNetwork : NetworkManager
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
         base.OnServerAddPlayer(conn);
-        GameObject unitSpawnerInstance = Instantiate(unitSpawnerPrefab, conn.identity.transform.position,
-            conn.identity.transform.rotation);
+        GameObject unitSpawnerInstance = Instantiate(unitSpawnerPrefab, Vector3.zero, 
+            Quaternion.identity);
         NetworkServer.Spawn(unitSpawnerInstance, conn);
     }
 }
