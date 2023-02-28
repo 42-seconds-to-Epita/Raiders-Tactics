@@ -26,7 +26,6 @@ public class UnitMovement :NetworkBehaviour
     
     #endregion
 
-
         // Update is called once per frame
     #region Client
     [ClientCallback]
@@ -44,8 +43,6 @@ public class UnitMovement :NetworkBehaviour
         }
 
         CmdMove(hit.point);
-
-
     }
     public override void OnStartAuthority()
     {
