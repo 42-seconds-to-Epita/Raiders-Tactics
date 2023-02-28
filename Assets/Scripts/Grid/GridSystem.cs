@@ -40,7 +40,7 @@ namespace Grid
                 if (canBuild)
                 {
                     Vector2Int rotationOffset = testItem.GetRotationOffset(dir);
-                    Vector3 objectWorldPos = grid.GetWorldPositionMiddle(x, z) +
+                    Vector3 objectWorldPos = grid.GetWorldPosition(x,z) +
                                              new Vector3(rotationOffset.x, 0, rotationOffset.y) +
                                              new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
 
