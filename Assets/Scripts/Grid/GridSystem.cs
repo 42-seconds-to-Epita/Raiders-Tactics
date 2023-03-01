@@ -38,7 +38,7 @@ namespace Grid
                 bool canBuild = true;
                 foreach (Vector2Int gridPosition in gridPositions)
                 {
-                    if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild())
+                    if (!grid.GetGridObject(gridPosition.x, gridPosition.y).CanBuild(getSelectedPositionType()))
                     {
                         canBuild = false;
                         break;
@@ -58,7 +58,8 @@ namespace Grid
 
                     foreach (Vector2Int gridPosition in gridPositions)
                     {
-                        grid.GetGridObject(gridPosition.x, gridPosition.y).SetPlacedObject(placedObject);
+                        grid.GetGridObject(gridPosition.x, gridPosition.y)
+                            .SetPlacedObject(placedObject, getSelectedPositionType());
                     }
                 }
             }
@@ -68,17 +69,20 @@ namespace Grid
                 grid.GetXY(PlayerInteractUtils.GetMouseWorldPosition(), out int x, out int z);
                 GridObject gridObject = grid.GetGridObject(x, z);
 
-                PlacedObject placedObject = gridObject.GetPlacedObject();
-
-                if (placedObject is not null)
+                foreach (PlacedObject placedObject in gridObject.GetAllPlacedObject())
                 {
+                    if (placedObject is null)
+                    {
+                        continue;
+                    }
+
                     placedObject.DestroySelf();
 
                     List<Vector2Int> gridPositions = placedObject.GetGridPositionList();
 
                     foreach (Vector2Int gridPosition in gridPositions)
                     {
-                        grid.GetGridObject(gridPosition.x, gridPosition.y).ClearPlacedObject();
+                        grid.GetGridObject(gridPosition.x, gridPosition.y).ClearPlacedObject(placedObject.positionType);
                     }
                 }
             }
@@ -100,12 +104,8 @@ namespace Grid
         {
             OnSelectedChanged?.Invoke(this, EventArgs.Empty);
         }
-
-        public Grid<GridObject> getGrid()
-        {
-            return grid;
-        }
-
+        
+        
         public Vector3 GetMouseWorldSnappedPosition()
         {
             Vector3 mousePosition = PlayerInteractUtils.GetMouseWorldPosition();
@@ -119,12 +119,29 @@ namespace Grid
 
         public Quaternion GetPlacedObjectRotation()
         {
-            return Quaternion.Euler(0, testItemList[selectedItem].GetRotationAngle(dir), 0);
+            return Quaternion.Euler(0, GetSelected().GetRotationAngle(dir), 0);
         }
 
         public ObjectType GetSelected()
         {
             return testItemList[selectedItem];
+        }
+
+        public PositionType getSelectedPositionType()
+        {
+            if (GetSelected().positionType != PositionType.WALL)
+            {
+                return GetSelected().positionType;
+            }
+            
+            switch (dir)
+            {
+                default:
+                case ObjectType.Dir.Down: return PositionType.WALL_DOWN;
+                case ObjectType.Dir.Left: return PositionType.WALL_LEFT;
+                case ObjectType.Dir.Up: return PositionType.WALL_UP;
+                case ObjectType.Dir.Right: return PositionType.WALL_RIGHT;
+            }
         }
     }
 }

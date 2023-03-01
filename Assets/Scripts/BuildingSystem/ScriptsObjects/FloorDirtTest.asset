@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab90a1d37510fa641b75729e2a3ec40d, type: 3}
-  m_Name: ObjectTest 2x4
+  m_Name: FloorDirtTest
   m_EditorClassIdentifier: 
-  nameString: 
-  prefab: {fileID: 6884607434555182882, guid: bbea94719d803e4489f6c7a4296d8094, type: 3}
-  visual: {fileID: 6884607434555182882, guid: bbea94719d803e4489f6c7a4296d8094, type: 3}
-  width: 2
-  length: 4
-  possiblePos: 00000000
+  nameString: Terre
+  prefab: {fileID: 6009664366631739315, guid: 859e332190e7bd848b6a62b3dd8386d3, type: 3}
+  visual: {fileID: 6009664366631739315, guid: 859e332190e7bd848b6a62b3dd8386d3, type: 3}
+  width: 1
+  length: 1
+  positionType: 1

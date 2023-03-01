@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Grid;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ObjectType", menuName = "ScriptableObjects/ObjectType")]
@@ -30,6 +31,7 @@ public class ObjectType : ScriptableObject
     public Transform visual;
     public int width;
     public int length;
+    public PositionType positionType;
 
     public int GetRotationAngle(Dir dir)
     {
