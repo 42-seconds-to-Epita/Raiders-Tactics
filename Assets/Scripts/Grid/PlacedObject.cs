@@ -9,6 +9,8 @@ public class PlacedObject : MonoBehaviour
     private Vector2Int origin;
     private ObjectType.Dir dir;
 
+    public PositionType positionType;
+
     public static PlacedObject Create(Vector3 worldPos, Vector2Int origin, ObjectType.Dir dir, ObjectType type)
     {
         Transform transform = Instantiate(type.prefab, worldPos, Quaternion.Euler(0, type.GetRotationAngle(dir), 0));
@@ -18,6 +20,7 @@ public class PlacedObject : MonoBehaviour
         placedObject.objectType = type;
         placedObject.origin = origin;
         placedObject.dir = dir;
+        placedObject.positionType = type.positionType;
 
         return placedObject;
     }
