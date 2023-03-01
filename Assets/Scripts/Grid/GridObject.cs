@@ -2,13 +2,23 @@
 
 namespace Grid
 {
+    public enum PlacesType
+    {
+        MAIN,
+        FLOOR,
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
+    }
+    
     public class GridObject
     {
         private Grid<GridObject> grid;
         private int x;
         private int z;
 
-        private Transform mainItemTransform;
+        private PlacedObject placedObject;
 
         public GridObject(Grid<GridObject> grid, int x, int z)
         {
@@ -17,26 +27,31 @@ namespace Grid
             this.z = z;
         }
 
-        public void SetMainItemTransform(Transform transform)
+        public void SetPlacedObject(PlacedObject placedObject)
         {
-            mainItemTransform = transform;
+            this.placedObject = placedObject;
             grid.UpdateDisplay(x, z);
         }
 
-        public void ClearMainItemTransform()
+        public PlacedObject GetPlacedObject()
         {
-            mainItemTransform = null;
+            return placedObject;
+        }
+
+        public void ClearPlacedObject()
+        {
+            placedObject = null;
             grid.UpdateDisplay(x, z);
         }
 
         public bool CanBuild()
         {
-            return mainItemTransform is null;
+            return placedObject is null;
         }
 
         public override string ToString()
         {
-            return x + ", " + z + "\n" + (mainItemTransform == null ? "0" : "1");
+            return x + ", " + z + "\n" + (placedObject == null ? "0" : "1");
         }
     }
 }
