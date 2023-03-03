@@ -26,6 +26,18 @@ public class ObjectType : ScriptableObject
         Right,
     }
 
+    public static Dir dirByName(string name)
+    {
+        switch (name)
+        {
+            default:
+            case "Down": return Dir.Down;
+            case "Left" : return Dir.Left;
+            case "Up" : return Dir.Up;
+            case "Right" : return Dir.Right;
+        }
+    }
+
     public string nameString;
     public Transform prefab;
     public Transform visual;

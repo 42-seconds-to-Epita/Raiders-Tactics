@@ -52,7 +52,7 @@ namespace Grid
                                              new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
 
                     PlacedObject placedObject = PlacedObject.Create(objectWorldPos, new Vector2Int(x, z), dir,
-                        testItemList[selectedItem]);
+                        testItemList[selectedItem], selectedItem);
 
                     OnObjectPlaced?.Invoke(this, EventArgs.Empty);
 
@@ -104,8 +104,8 @@ namespace Grid
         {
             OnSelectedChanged?.Invoke(this, EventArgs.Empty);
         }
-        
-        
+
+
         public Vector3 GetMouseWorldSnappedPosition()
         {
             Vector3 mousePosition = PlayerInteractUtils.GetMouseWorldPosition();
@@ -133,7 +133,7 @@ namespace Grid
             {
                 return GetSelected().positionType;
             }
-            
+
             switch (dir)
             {
                 default:
@@ -141,6 +141,50 @@ namespace Grid
                 case ObjectType.Dir.Left: return PositionType.WALL_LEFT;
                 case ObjectType.Dir.Up: return PositionType.WALL_UP;
                 case ObjectType.Dir.Right: return PositionType.WALL_RIGHT;
+            }
+        }
+
+        public PositionType PosTypeByName(string name)
+        {
+            switch (name)
+            {
+                default:
+                case "MAIN": return PositionType.MAIN;
+                case "FLOOR": return PositionType.FLOOR;
+                case "WALL": return PositionType.WALL;
+                case "WALL_UP": return PositionType.WALL_UP;
+                case "WALL_DOWN": return PositionType.WALL_DOWN;
+                case "WALL_LEFT": return PositionType.WALL_LEFT;
+                case "WALL_RIGHT": return PositionType.WALL_RIGHT;
+            }
+        }
+
+        public void LoadAllObjects(List<SaveObject> toLoad)
+        {
+            foreach (SaveObject saveObject in toLoad)
+            {
+                List<Vector2Int> gridPositions =
+                    testItemList[selectedItem]
+                        .GetGridPositionList(new Vector2Int(saveObject.origin.x, saveObject.origin.y),
+                            ObjectType.dirByName(saveObject.dir));
+
+                
+                Vector2Int rotationOffset = testItemList[saveObject.objectTypeId]
+                    .GetRotationOffset(ObjectType.dirByName(saveObject.dir));
+                Vector3 objectWorldPos = grid.GetWorldPosition(saveObject.origin.x, saveObject.origin.y) +
+                                         new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
+
+                PlacedObject placedObject = PlacedObject.Create(objectWorldPos,
+                    new Vector2Int(saveObject.origin.x, saveObject.origin.y), ObjectType.dirByName(saveObject.dir),
+                    testItemList[saveObject.objectTypeId], saveObject.objectTypeId);
+
+                OnObjectPlaced?.Invoke(this, EventArgs.Empty);
+
+                foreach (Vector2Int gridPosition in gridPositions)
+                {
+                    grid.GetGridObject(gridPosition.x, gridPosition.y)
+                        .SetPlacedObject(placedObject, PosTypeByName(saveObject.positionType));
+                }
             }
         }
     }
