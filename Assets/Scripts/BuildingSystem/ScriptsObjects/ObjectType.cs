@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Grid;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ObjectType", menuName = "ScriptableObjects/ObjectType")]
@@ -25,11 +26,24 @@ public class ObjectType : ScriptableObject
         Right,
     }
 
+    public static Dir dirByName(string name)
+    {
+        switch (name)
+        {
+            default:
+            case "Down": return Dir.Down;
+            case "Left" : return Dir.Left;
+            case "Up" : return Dir.Up;
+            case "Right" : return Dir.Right;
+        }
+    }
+
     public string nameString;
     public Transform prefab;
     public Transform visual;
     public int width;
     public int length;
+    public PositionType positionType;
 
     public int GetRotationAngle(Dir dir)
     {

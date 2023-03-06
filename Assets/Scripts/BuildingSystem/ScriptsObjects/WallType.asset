@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab90a1d37510fa641b75729e2a3ec40d, type: 3}
-  m_Name: ObjectTest1x2
+  m_Name: WallType
   m_EditorClassIdentifier: 
-  nameString: Armoire
-  prefab: {fileID: 7416513474216707252, guid: c7a7e8fdf812aaa40b03aa4f6be03d0c, type: 3}
-  visual: {fileID: 7416513474216707252, guid: c7a7e8fdf812aaa40b03aa4f6be03d0c, type: 3}
-  width: 2
+  nameString: Wall
+  prefab: {fileID: 3555835148409158204, guid: 60ffa9431000eeb458e5fa86a46e0931, type: 3}
+  visual: {fileID: 3555835148409158204, guid: 60ffa9431000eeb458e5fa86a46e0931, type: 3}
+  width: 1
   length: 1
-  possiblePos: 00000000
+  positionType: 2

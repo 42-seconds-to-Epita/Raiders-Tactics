@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab90a1d37510fa641b75729e2a3ec40d, type: 3}
-  m_Name: ObjectTest1x2
+  m_Name: FloorDirtTest
   m_EditorClassIdentifier: 
-  nameString: Armoire
-  prefab: {fileID: 7416513474216707252, guid: c7a7e8fdf812aaa40b03aa4f6be03d0c, type: 3}
-  visual: {fileID: 7416513474216707252, guid: c7a7e8fdf812aaa40b03aa4f6be03d0c, type: 3}
-  width: 2
+  nameString: Terre
+  prefab: {fileID: 6009664366631739315, guid: 859e332190e7bd848b6a62b3dd8386d3, type: 3}
+  visual: {fileID: 6009664366631739315, guid: 859e332190e7bd848b6a62b3dd8386d3, type: 3}
+  width: 1
   length: 1
-  possiblePos: 00000000
+  positionType: 1

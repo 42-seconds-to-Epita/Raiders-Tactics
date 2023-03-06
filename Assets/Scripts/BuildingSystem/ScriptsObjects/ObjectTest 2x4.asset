@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab90a1d37510fa641b75729e2a3ec40d, type: 3}
-  m_Name: ObjectTest1x2
+  m_Name: ObjectTest 2x4
   m_EditorClassIdentifier: 
-  nameString: Armoire
-  prefab: {fileID: 7416513474216707252, guid: c7a7e8fdf812aaa40b03aa4f6be03d0c, type: 3}
-  visual: {fileID: 7416513474216707252, guid: c7a7e8fdf812aaa40b03aa4f6be03d0c, type: 3}
+  nameString: 
+  prefab: {fileID: 6884607434555182882, guid: bbea94719d803e4489f6c7a4296d8094, type: 3}
+  visual: {fileID: 6884607434555182882, guid: bbea94719d803e4489f6c7a4296d8094, type: 3}
   width: 2
-  length: 1
+  length: 4
   possiblePos: 00000000
