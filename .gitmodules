@@ -1,0 +1,3 @@
+[submodule "Syntys' Polygon Pack"]
+	path = Assets/Assets/syntys-polygon-pack
+	url = https://gitlab.cri.epita.fr/romain.seznec/syntys-polygon-pack.git
