@@ -23,7 +23,7 @@ public class TurretAi : MonoBehaviour {
     void Update () {
         if(!m_tracker || !m_shooter || !m_range)
             return;
- 
+        
         switch(aiState)
         {
         case AiStates.NEAREST:
