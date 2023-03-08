@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
- 
+using System.Linq;
+
 public class RangeChecker : MonoBehaviour {
     public List<string> tags;
  
@@ -40,7 +41,8 @@ public class RangeChecker : MonoBehaviour {
  
     public List<GameObject> GetValidTargets()
     {
-        return m_targets;
+        //return m_targets;
+        return GameObject.FindGameObjectsWithTag("Enemy").ToList(); //TODO : temp fix for presentation
     }
  
     public bool InRange(GameObject go)
