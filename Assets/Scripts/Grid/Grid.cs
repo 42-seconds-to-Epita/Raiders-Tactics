@@ -31,7 +31,7 @@ namespace Grid
             }
 
 
-            bool debug = true;
+            bool debug = false;
             if (debug)
             {
                 for (int x = 0; x < gridArray.GetLength(0); x++)
@@ -53,7 +53,7 @@ namespace Grid
 
         public void UpdateDisplay(int x, int z)
         {
-            if (debugTextArray!=  null)
+            if (false && debugTextArray !=  null)
             {
                 debugTextArray[x, z].text = gridArray[x, z].ToString();
             }

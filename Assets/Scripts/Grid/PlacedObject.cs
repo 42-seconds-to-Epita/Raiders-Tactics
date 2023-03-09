@@ -11,8 +11,8 @@ public class PlacedObject : MonoBehaviour
     public Vector2Int origin { get; private set; }
     public ObjectType.Dir dir { get; private set; }
 
-    public PositionType positionType;
-    public int objectTypeId;
+    public PositionType positionType { get; private set; }
+    public int objectTypeId { get; private set; }
     
     public static PlacedObject Create(Vector3 worldPos, Vector2Int origin, ObjectType.Dir dir, ObjectType type, int typeId)
     {
