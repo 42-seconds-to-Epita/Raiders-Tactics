@@ -1,0 +1,22 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Assets/Main/UI%20Toolkit/style.uss?fileID=7433441132597879392&amp;guid=e6c01a99a0a001a46b0646044bffca84&amp;type=3#style" />
+    <ui:VisualElement name="Menu" style="align-items: center; justify-content: flex-start; width: 100%; height: 95%; padding-top: 40px;">
+        <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/Images/logo.png?fileID=2800000&amp;guid=da5f31c5a1e192f4f919bd9439e66920&amp;type=3#logo&apos;); width: 236px; height: 281px; align-items: auto; padding-bottom: 0;" />
+        <ui:VisualElement name="Buttons" style="margin-top: 50px; display: flex; visibility: visible; width: 15%; font-size: 20px;">
+            <ui:Button text="Campaign" display-tooltip-when-elided="true" name="Campaign" style="font-size: 20px;" />
+            <ui:Button text="Multiplayer" display-tooltip-when-elided="true" name="Multiplayer" style="font-size: 20px;" />
+            <ui:Button text="Map Editor" display-tooltip-when-elided="true" name="MapEditor" style="font-size: 20px;" />
+            <ui:Button text="Quit Game" display-tooltip-when-elided="true" name="QuitGame" style="font-size: 20px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="MultiplayerButtons" style="margin-top: 50px; width: 300px; display: none; visibility: visible;">
+            <ui:Label text="Multiplayer" display-tooltip-when-elided="true" name="Label" style="align-items: auto; -unity-text-align: upper-center; font-size: 20px; color: rgb(255, 255, 255);" />
+            <ui:ScrollView>
+                <ui:TextField picking-mode="Ignore" text="Server IP" password="false" readonly="false" name="IPField" style="color: rgb(0, 0, 0); margin-left: 3px; margin-right: 3px; margin-top: 1px; margin-bottom: 1px;" />
+                <ui:Button text="Connect to player" display-tooltip-when-elided="true" name="Connect" style="-unity-text-align: middle-center; font-size: 20px;" />
+                <ui:Button text="Host game on localhost" display-tooltip-when-elided="true" name="Localhost" style="font-size: 20px;" />
+                <ui:Button text="Go back" display-tooltip-when-elided="true" name="Back" style="font-size: 20px;" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Label text="A production of 42 Seconds To EPITA." display-tooltip-when-elided="true" name="Credits" style="-unity-text-align: upper-center; font-size: 20px; color: rgb(255, 255, 255);" />
+</ui:UXML>
