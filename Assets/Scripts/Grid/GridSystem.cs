@@ -26,6 +26,7 @@ namespace Grid
             Instance = this;
             grid = new Grid<GridObject>(20, 20, 1.5f, (Grid<GridObject> g, int x, int y) => new GridObject(g, x, y));
             
+            if (isSoutenance) {
             string[] result = SaveUtils.Load("test").Split("\n");
             List<SaveObject> toAdd = new List<SaveObject>();
             
@@ -35,7 +36,7 @@ namespace Grid
             }
             
             LoadAllObjects(toAdd);
-        }
+        }}
 
         private void Update()
         {
