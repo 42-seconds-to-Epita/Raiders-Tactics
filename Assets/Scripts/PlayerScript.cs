@@ -18,8 +18,7 @@ namespace QuickStart
         public Vector3 newPosition;
         public Quaternion newRotation;
         public Vector3 newZoom;
-
-
+        
         public override void OnStartLocalPlayer()
         {
             Camera.main.transform.SetParent(transform);

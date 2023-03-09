@@ -8,17 +8,34 @@ public class BuildGhost : MonoBehaviour
     private Transform visual;
     private PlacedObject placedObjectTypeSO;
 
+    public bool isSoutenance;
+
     private void Start() {
+        if (isSoutenance)
+        {
+            return;
+        }
+        
         RefreshVisual();
 
         GridSystem.Instance.OnSelectedChanged += Instance_OnSelectedChanged;
     }
 
     private void Instance_OnSelectedChanged(object sender, System.EventArgs e) {
+        if (isSoutenance)
+        {
+            return;
+        }
+        
         RefreshVisual();
     }
 
     private void LateUpdate() {
+        if (isSoutenance)
+        {
+            return;
+        }
+        
         Vector3 targetPosition = GridSystem.Instance.GetMouseWorldSnappedPosition();
         targetPosition.y = 1f;
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 15f);
@@ -27,6 +44,10 @@ public class BuildGhost : MonoBehaviour
     }
 
     private void RefreshVisual() {
+        if (isSoutenance)
+        {
+            return;
+        }
         if (visual is not null) {
             Destroy(visual.gameObject);
             visual = null;
@@ -44,6 +65,10 @@ public class BuildGhost : MonoBehaviour
     }
 
     private void SetLayerRecursive(GameObject targetGameObject, int layer) {
+        if (isSoutenance)
+        {
+            return;
+        }
         targetGameObject.layer = layer;
         foreach (Transform child in targetGameObject.transform) {
             SetLayerRecursive(child.gameObject, layer);

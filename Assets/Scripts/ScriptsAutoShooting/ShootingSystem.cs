@@ -61,10 +61,10 @@ public class ShootingSystem : MonoBehaviour {
  
         for(int i = 0; i < projectileSpawns.Count; i++){
             if(projectileSpawns[i]){
-                GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
-                proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], m_target, damage, fireRate);
+                //GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
+                //proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], m_target, damage, fireRate);
  
-                m_lastProjectiles.Add(proj);
+                //m_lastProjectiles.Add(proj);
             }
         }
     }

@@ -19,14 +19,31 @@ namespace Grid
         private Grid<GridObject> grid;
         private ObjectType.Dir dir = ObjectType.Dir.Down;
 
+        public bool isSoutenance;
+
         private void Start()
         {
             Instance = this;
             grid = new Grid<GridObject>(20, 20, 1.5f, (Grid<GridObject> g, int x, int y) => new GridObject(g, x, y));
+            
+            string[] result = SaveUtils.Load("test").Split("\n");
+            List<SaveObject> toAdd = new List<SaveObject>();
+            
+            foreach (string s in result)
+            {
+                toAdd.Add(JsonUtility.FromJson<SaveObject>(s));
+            }
+            
+            LoadAllObjects(toAdd);
         }
 
         private void Update()
         {
+            if (isSoutenance)
+            {
+                return;
+            }
+            
             if (Input.GetMouseButtonDown(0))
             {
                 grid.GetXY(PlayerInteractUtils.GetMouseWorldPosition(), out int x, out int z);
@@ -102,6 +119,10 @@ namespace Grid
 
         private void RefreshSelectedObjectType()
         {
+            if (isSoutenance)
+            {
+                return;
+            }
             OnSelectedChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -161,8 +182,17 @@ namespace Grid
 
         public void LoadAllObjects(List<SaveObject> toLoad)
         {
+            int i = 0;
             foreach (SaveObject saveObject in toLoad)
             {
+                i += 1;
+                Debug.Log(i);
+                if (selectedItem >= testItemList.Count || selectedItem < 0 || testItemList[selectedItem] == null)
+                {
+                    Debug.Log("WTF load all objects");
+                    continue;
+                }
+                
                 List<Vector2Int> gridPositions =
                     testItemList[selectedItem]
                         .GetGridPositionList(new Vector2Int(saveObject.origin.x, saveObject.origin.y),

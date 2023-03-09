@@ -16,7 +16,7 @@ public class UnitMovement :NetworkBehaviour
     [Command]
     private void CmdMove(Vector3 position)
     {
-        if (!NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+        if (!NavMesh.SamplePosition(position, out NavMeshHit hit, 10f, NavMesh.AllAreas))
         {
             return; 
         }
