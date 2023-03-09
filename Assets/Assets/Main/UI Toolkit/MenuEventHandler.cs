@@ -69,6 +69,7 @@ public class MenuEventHandler : MonoBehaviour
 
     private void MultiplayerLocalhostClick(ClickEvent e)
     {
+        Address.GetComponent<PersistentAddress>().IsHost = true;
         SceneManager.LoadScene("TestMulti1");
     }
 

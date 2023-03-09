@@ -7,6 +7,7 @@ public class PersistentAddress : MonoBehaviour
     public static PersistentAddress Instance;
 
     public string IPAddress = "localhost";
+    public bool IsHost = false;
 
     private void Awake()
     {
