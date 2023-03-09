@@ -24,7 +24,11 @@ public class MenuEventHandler : MonoBehaviour
         Button MapEditor = (Button)root.Q("MapEditor");
         MapEditor.RegisterCallback<ClickEvent>(MapEditorClick);
 
-        Button Quit = (Button)root.Q("Quit");
+        Button Quit = (Button)root.Q("QuitGame");
+        Quit.RegisterCallback<ClickEvent>((ClickEvent e) =>
+        {
+            Application.Quit();
+        });
         
         // Multiplayer selection
         Button Connect = (Button)root.Q("Connect");
