@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Assets/Main/UI%20Toolkit/style.uss?fileID=7433441132597879392&amp;guid=e6c01a99a0a001a46b0646044bffca84&amp;type=3#style" />
     <ui:VisualElement name="Menu" style="align-items: center; justify-content: flex-start; width: 100%; height: 95%; padding-top: 40px;">
-        <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/Images/logo.png?fileID=2800000&amp;guid=da5f31c5a1e192f4f919bd9439e66920&amp;type=3#logo&apos;); width: 236px; height: 281px; align-items: auto; padding-bottom: 0;" />
+        <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/Images/logo.png?fileID=2800000&amp;guid=4123db5125905ae4d8c752fba16e524c&amp;type=3#logo&apos;); width: 236px; height: 281px; align-items: auto; padding-bottom: 0;" />
         <ui:VisualElement name="Buttons" style="margin-top: 50px; display: flex; visibility: visible; width: 15%; font-size: 20px;">
             <ui:Button text="Campaign" display-tooltip-when-elided="true" name="Campaign" style="font-size: 20px;" />
             <ui:Button text="Multiplayer" display-tooltip-when-elided="true" name="Multiplayer" style="font-size: 20px;" />
